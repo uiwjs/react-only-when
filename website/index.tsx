@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import GitHubCorners from '@uiw/react-github-corners';
