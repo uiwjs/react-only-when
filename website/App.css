@@ -36,6 +36,10 @@ body {
   padding-bottom: 60px;
 }
 
+.w-only-hidden {
+  display: none;
+}
+
 label {
   user-select: none;
 }
