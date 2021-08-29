@@ -25,6 +25,11 @@
       "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
     ]
   },
+  "files": [
+    "src",
+    "cjs",
+    "esm"
+  ],
   "peerDependencies": {
     "@babel/runtime": ">=7.10.0",
     "react": ">=16.9.0",
