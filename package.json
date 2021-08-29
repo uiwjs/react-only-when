@@ -2,21 +2,14 @@
   "name": "@uiw/react-only-when",
   "version": "1.0.2",
   "description": "A declarative component for conditional rendering.",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
   "scripts": {
-    "prepack": "npm run build:lib",
+    "prepack": "npm run build",
     "doc": "kkt build --app-src ./website",
     "start": "kkt start --app-src ./website",
-    "build": "npm run build:lib && npm run doc",
-    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs",
-    "watch": "npm run ts:watch & npm run types:watch",
-    "types:build": "tsbb types --sourceRoot src --target ESNEXT",
-    "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
-    "types:esm": "npm run types:build -- --outDir ../lib/esm",
-    "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
-    "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
-    "ts:build": "tsbb build --target react",
+    "watch": "tsbb watch",
+    "build": "tsbb build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "kkt test --env=jsdom --app-src=./website",
     "test:coverage": "kkt test --env=jsdom --coverage --app-src=./website"
@@ -27,11 +20,6 @@
   },
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
@@ -43,22 +31,22 @@
     "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.10.4",
-    "@kkt/raw-modules": "6.10.4",
-    "@kkt/scope-plugin-options": "6.10.4",
-    "@types/react": "17.0.11",
-    "@types/react-dom": "17.0.8",
+    "@kkt/less-modules": "6.11.0",
+    "@kkt/raw-modules": "6.11.0",
+    "@kkt/scope-plugin-options": "6.11.0",
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9",
     "@types/react-test-renderer": "17.0.1",
     "@uiw/react-github-corners": "1.4.0",
-    "@uiw/react-markdown-preview": "3.1.1",
+    "@uiw/react-markdown-preview": "3.3.0",
     "husky": "4.3.8",
-    "kkt": "6.10.4",
-    "lint-staged": "11.0.0",
-    "prettier": "2.3.1",
+    "kkt": "6.11.0",
+    "lint-staged": "11.1.2",
+    "prettier": "2.3.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",
-    "tsbb": "2.2.1"
+    "tsbb": "3.0.0"
   },
   "eslintConfig": {
     "extends": [
