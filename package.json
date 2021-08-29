@@ -39,7 +39,7 @@
     "@types/react-test-renderer": "17.0.1",
     "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-markdown-preview": "3.3.0",
-    "husky": "4.3.8",
+    "husky": "7.0.2",
     "kkt": "6.11.0",
     "lint-staged": "11.1.2",
     "prettier": "2.3.2",
