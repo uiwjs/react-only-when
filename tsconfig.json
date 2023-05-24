@@ -20,5 +20,6 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noEmit": true
-  }
+  },
+  "include": ["src"],
 }
