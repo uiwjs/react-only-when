@@ -14,13 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "baseUrl": "./website",
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "removeComments": false,
     "noEmit": true
-  },
-  "include": ["website", ".kktrc.ts"]
+  }
 }
