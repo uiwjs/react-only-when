@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/static/css/main.76711bcb.css",
-    "main.js": "/static/js/main.efde5c51.js",
-    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.25bda7c1.js",
-    "babel-vendor.js": "/static/js/babel-vendor.7a9c2ab4.js",
-    "parse5-vendor.js": "/static/js/parse5-vendor.f1453a36.js",
-    "react-vendor.js": "/static/js/react-vendor.4c3780e3.js",
+    "main.js": "/static/js/main.1440c1a0.js",
+    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.2ec25628.js",
+    "babel-vendor.js": "/static/js/babel-vendor.a269f5db.js",
+    "parse5-vendor.js": "/static/js/parse5-vendor.4c9ba44c.js",
+    "react-vendor.js": "/static/js/react-vendor.18d0d6b6.js",
     "static/media/logo.svg": "/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/index.html",
     "main.76711bcb.css.map": "/static/css/main.76711bcb.css.map",
-    "main.efde5c51.js.map": "/static/js/main.efde5c51.js.map",
-    "refractor-prismjs-vendor.25bda7c1.js.map": "/static/js/refractor-prismjs-vendor.25bda7c1.js.map",
-    "babel-vendor.7a9c2ab4.js.map": "/static/js/babel-vendor.7a9c2ab4.js.map",
-    "parse5-vendor.f1453a36.js.map": "/static/js/parse5-vendor.f1453a36.js.map",
-    "react-vendor.4c3780e3.js.map": "/static/js/react-vendor.4c3780e3.js.map"
+    "main.1440c1a0.js.map": "/static/js/main.1440c1a0.js.map",
+    "refractor-prismjs-vendor.2ec25628.js.map": "/static/js/refractor-prismjs-vendor.2ec25628.js.map",
+    "babel-vendor.a269f5db.js.map": "/static/js/babel-vendor.a269f5db.js.map",
+    "parse5-vendor.4c9ba44c.js.map": "/static/js/parse5-vendor.4c9ba44c.js.map",
+    "react-vendor.18d0d6b6.js.map": "/static/js/react-vendor.18d0d6b6.js.map"
   },
   "entrypoints": [
-    "static/js/refractor-prismjs-vendor.25bda7c1.js",
-    "static/js/babel-vendor.7a9c2ab4.js",
-    "static/js/parse5-vendor.f1453a36.js",
-    "static/js/react-vendor.4c3780e3.js",
+    "static/js/refractor-prismjs-vendor.2ec25628.js",
+    "static/js/babel-vendor.a269f5db.js",
+    "static/js/parse5-vendor.4c9ba44c.js",
+    "static/js/react-vendor.18d0d6b6.js",
     "static/css/main.76711bcb.css",
-    "static/js/main.efde5c51.js"
+    "static/js/main.1440c1a0.js"
   ]
 }
