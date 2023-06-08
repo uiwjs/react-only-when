@@ -21,6 +21,36 @@ import Only from '@uiw/react-only-when'
 </Only>
 ```
 
+## \<If>
+
+React component that renders the children if the `condition` prop is `true`.
+
+```jsx
+import { If } from '@uiw/react-only-when';
+
+<div>
+  <If
+    condition={props.error}
+    render={() => (
+      <h1>{props.error}</h1>
+    )}
+  />
+  <If condition={props.error}>
+    <h1>{props.error}</h1>
+  </If>
+</div>
+```
+
+Or you could just use plain JavaScript:
+
+```jsx
+<div>
+  {props.error && (
+    <h1>{props.error}</h1>
+  )}
+</div>
+```
+
 ## Example
 
 ```jsx

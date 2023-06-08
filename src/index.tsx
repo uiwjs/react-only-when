@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import { If } from './If';
+
+export * from './If';
 
 export interface OnlyWhenProps {
   /** A single child element */
@@ -17,7 +20,7 @@ export interface OnlyWhenProps {
   hiddenMode?: 'null' | 'display' | 'visibility' | 'css';
 }
 
-export default function OnlyWhen(props: OnlyWhenProps) {
+export default function OnlyWhen(props: PropsWithChildren<OnlyWhenProps>) {
   const { children, when, hiddenMode, className } = props;
   const singleChild = React.Children.only(children);
   const { style, ...restOfChildProps } = singleChild.props;
@@ -36,7 +39,7 @@ export default function OnlyWhen(props: OnlyWhenProps) {
     }
   }
   const cloned = React.cloneElement(singleChild, extendedProps);
-  const toHide = keepNode ? cloned : null;
+  const toHide = <If condition={keepNode}>{cloned}</If>;
 
   return when ? singleChild : toHide;
 }
