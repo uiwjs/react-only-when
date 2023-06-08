@@ -27,6 +27,8 @@ React component that renders the children if the `condition` prop is `true`.
 
 ```jsx
 import { If } from '@uiw/react-only-when';
+// Or
+import { If } from '@uiw/react-only-when/if'
 
 <div>
   <If

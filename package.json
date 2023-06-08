@@ -4,12 +4,25 @@
   "description": "A declarative component for conditional rendering.",
   "main": "cjs/index.js",
   "module": "esm/index.js",
+  "exports": {
+    "./README.md": "./README.md",
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "types": "./esm/index.d.ts"
+    },
+    "./if": {
+      "import": "./esm/If.js",
+      "require": "./cjs/If.js",
+      "types": "./esm/If.d.ts"
+    }
+  },
   "scripts": {
     "prepack": "npm run build",
     "doc": "kkt build --app-src ./website",
     "start": "kkt start --app-src ./website",
-    "watch": "tsbb watch src/*tsx --use-babel --cjs cjs",
-    "build": "tsbb build src/*tsx --use-babel --cjs cjs",
+    "watch": "tsbb watch src/*.tsx --use-babel --cjs cjs",
+    "build": "tsbb build src/*.tsx --use-babel --cjs cjs",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "kkt test --env=jsdom --app-src=./website",
     "test:coverage": "kkt test --env=jsdom --coverage --app-src=./website"
