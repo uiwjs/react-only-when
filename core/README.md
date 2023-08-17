@@ -125,16 +125,16 @@ export default function App() {
 }
 ```
 
-## props
+## \<Only /> props
 
 | prop name  | type | default | isRequired | description |
 | ----- | ----- | ----- | ----- | ----- |
 | children | react element | `null` | `true` | A single child element |
 | when | bool | `false` | `true` | When true, children will rendered as is |
 | hiddenMode | string | `null`   | `false` | Determines how children should be hidden |
-| className  | string | `r-o_hidden` | `false` | This is working in combination with `hiddenMode={"css"}` |
+| className  | string | `w-hidden` | `false` | This is working in combination with `hiddenMode={"css"}` |
 
-### hiddenMode enum
+**`hiddenMode` enum**
 
 | hiddenMode | description |
 | ----- | ----- |

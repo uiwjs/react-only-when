@@ -21,7 +21,7 @@ export interface OnlyWhenProps {
 }
 
 export default function OnlyWhen(props: PropsWithChildren<OnlyWhenProps>) {
-  const { children, when, hiddenMode, className } = props;
+  const { children, when, hiddenMode = 'null', className = 'w-hidden' } = props;
   const singleChild = React.Children.only(children);
   const { style, ...restOfChildProps } = singleChild.props;
   const extendedProps = { ...restOfChildProps };

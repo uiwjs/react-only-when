@@ -77,7 +77,7 @@ describe('<Only />', () => {
       expect(only.type).toEqual('span');
       expect(only.props.id).toEqual('child');
       expect(only.props.children).toBeUndefined();
-      expect(only.props.className).toEqual('test-className');
+      expect(only.props.className).toEqual('test-className w-hidden');
       expect(only.props.style).toEqual({ color: 'green' });
     }
   });
@@ -100,7 +100,7 @@ describe('<Only />', () => {
     }
   });
 
-  it('Joining className = undefined', () => {
+  it('Joining className default value', () => {
     const component = TestRenderer.create(
       <Only when={false} hiddenMode="css">
         <span id="child" style={{ color: 'green' }} />
@@ -112,7 +112,7 @@ describe('<Only />', () => {
       expect(only.type).toEqual('span');
       expect(only.props.id).toEqual('child');
       expect(only.props.children).toBeUndefined();
-      expect(only.props.className).toEqual('');
+      expect(only.props.className).toEqual('w-hidden');
       expect(only.props.style).toEqual({ color: 'green' });
     }
   });
