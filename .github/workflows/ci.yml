@@ -37,6 +37,7 @@ jobs:
     - name: Create Coverage Badges
       uses: jaywcjlove/coverage-badges-cli@main
       with:
+        source: core/coverage/coverage-summary.json
         output: www/build/badges.svg
 
     - name: Generate Changelog
