@@ -1,0 +1,53 @@
+{
+  "name": "@uiw/react-only-when",
+  "version": "1.1.1",
+  "description": "A declarative component for conditional rendering.",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "homepage": "https://uiwjs.github.io/react-only-when",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-only-when.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "types": "./esm/index.d.ts"
+    },
+    "./if": {
+      "import": "./esm/If.js",
+      "require": "./cjs/If.js",
+      "types": "./esm/If.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "author": "Kenny Wang<wowohoo@qq.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime": ">=7.10.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "files": [
+    "src",
+    "cjs",
+    "esm"
+  ],
+  "keywords": [
+    "component",
+    "only-when",
+    "react",
+    "react-component"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.22.6"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/react-test-renderer": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0"
+  }
+}

@@ -17,13 +17,14 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run doc
-    - run: npm run test:coverage
+    - run: npm run coverage
+    - run: cp -rp ./core/coverage www/build
 
     - name: Create Tag
       id: create_tag
       uses: jaywcjlove/create-tag-action@main
       with:
-        package-path: ./package.json
+        package-path: ./core/package.json
 
     - name: Generate Changelog
       id: changelog
@@ -38,7 +39,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./www/build
 
     - name: Create Release
       uses: ncipollo/release-action@v1
@@ -64,6 +65,7 @@ jobs:
     - run: npm publish --access public
       name: 📦 @uiw/react-only-when publish to NPM
       continue-on-error: true
+      working-directory: core
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     # - run: npm install @jsdevtools/npm-publish -g

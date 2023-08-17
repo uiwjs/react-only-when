@@ -1,7 +1,0 @@
-{
-  "extends": "../tsconfig",
-  "include": ["../website"],
-  "compilerOptions": {
-    "baseUrl": "../website"
-  }
-}

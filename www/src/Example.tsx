@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Only, { OnlyWhenProps } from '../';
+import Only, { OnlyWhenProps } from '@uiw/react-only-when';
 
 type CheckboxProps = {
   hiddenMode?: OnlyWhenProps['hiddenMode'];
