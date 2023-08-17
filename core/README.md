@@ -125,7 +125,7 @@ export default function App() {
 }
 ```
 
-## \<Only /> props
+## `<Only />` props
 
 | prop name  | type | default | isRequired | description |
 | ----- | ----- | ----- | ----- | ----- |
@@ -143,6 +143,29 @@ export default function App() {
 | `visibility` | Will render the child with `visibility:hidden` |
 | `css` | Will render the child with a CSS class (you can pass it a custom `className` prop) |
 
+## `<If />` Props
+
+```tsx
+import { ReactElement } from 'react';
+import { FC, PropsWithChildren } from 'react';
+export interface IfProps {
+  readonly condition?: boolean;
+  readonly render?: () => ReactElement;
+}
+export declare const If: FC<PropsWithChildren<IfProps>>;
+```
+
+## `<Switch />` `<Case />` `<Default />` Props
+
+```tsx
+import { FC, PropsWithChildren } from 'react';
+export declare const Switch: FC<PropsWithChildren<{}>>;
+export interface CaseProps {
+  readonly condition?: boolean;
+}
+export declare const Case: FC<PropsWithChildren<CaseProps>>;
+export declare const Default: FC<PropsWithChildren>;
+```
 
 ## Development
 
