@@ -20,7 +20,11 @@
       "require": "./cjs/If.js",
       "types": "./esm/If.d.ts"
     },
-    "./package.json": "./package.json"
+    "./switch": {
+      "import": "./esm/switch.js",
+      "require": "./cjs/switch.js",
+      "types": "./esm/switch.d.ts"
+    }
   },
   "author": "Kenny Wang<wowohoo@qq.com>",
   "license": "MIT",

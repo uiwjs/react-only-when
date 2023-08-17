@@ -18,14 +18,13 @@ jobs:
     - run: npm run build
     - run: npm run doc
     - run: npm run coverage
-    - run: cp -rp ./core/coverage www/build
+    - run: cp -rp ./coverage www/build
 
     - name: Create Tag
       id: create_tag
       uses: jaywcjlove/create-tag-action@main
       with:
         package-path: ./core/package.json
-
 
     - name: Generate Contributors Images
       uses: jaywcjlove/github-action-contributors@main
@@ -37,7 +36,6 @@ jobs:
     - name: Create Coverage Badges
       uses: jaywcjlove/coverage-badges-cli@main
       with:
-        source: core/coverage/coverage-summary.json
         output: www/build/badges.svg
 
     - name: Generate Changelog

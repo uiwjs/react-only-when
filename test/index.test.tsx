@@ -1,6 +1,6 @@
 /* eslint-disable jest/no-conditional-expect */
 import TestRenderer from 'react-test-renderer';
-import Only from '../';
+import Only from '../core/src';
 
 describe('<Only />', () => {
   it('Not rendering children', () => {

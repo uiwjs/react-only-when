@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import MarkdownPreviewExample from '@uiw/react-markdown-preview-example';
 import data from '../../core/README.md';
-import pkg from '@uiw/react-only-when/package.json';
+import pkg from '../../core/package.json';
 import OnlyWhenExample from './Example';
 
 const Github = MarkdownPreviewExample.Github;

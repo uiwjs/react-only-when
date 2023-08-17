@@ -1,6 +1,6 @@
 /* eslint-disable jest/no-conditional-expect */
 import TestRenderer from 'react-test-renderer';
-import { If } from '../';
+import { If } from '../core/src/If';
 
 describe('<If />', () => {
   it('Not rendering children', () => {

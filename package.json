@@ -1,12 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "watch": "lerna exec --scope @uiw/react-only-when -- tsbb watch \"src/*.{ts,tsx}\" --use-babel --cjs cjs",
-    "build": "lerna exec --scope @uiw/react-only-when -- tsbb build \"src/*.{ts,tsx}\" --use-babel --cjs cjs",
     "start": "lerna exec --scope website -- npm run start",
     "doc": "lerna exec --scope website -- npm run build",
-    "test": "lerna exec --scope @uiw/react-only-when -- tsbb test --env=jsdom",
-    "coverage": "lerna exec --scope @uiw/react-only-when -- tsbb test --env=jsdom --coverage --bail",
+    "⬇️⬇️⬇️⬇️⬇️ package ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ package ▼▼▼▼▼",
+    "watch": "lerna exec --scope @uiw/react-only-when -- tsbb watch \"src/*.{ts,tsx}\" --use-babel --cjs cjs",
+    "build": "lerna exec --scope @uiw/react-only-when -- tsbb build \"src/*.{ts,tsx}\" --use-babel --cjs cjs",
+    "⬆️⬆️⬆️⬆️⬆️ package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ package ▲▲▲▲▲",
+    "type-check": "tsc --noEmit",
+    "test": "tsbb test",
+    "coverage": "tsbb test --coverage --bail",
     "prepare": "husky install",
     "publish": "lerna publish from-package --yes --no-verify-access",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
@@ -21,6 +24,15 @@
   ],
   "engines": {
     "node": ">=16.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/core/src/*.{tsx,ts}"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "json-summary"
+    ]
   },
   "overrides": {
     "typescript": "^5.1.3"

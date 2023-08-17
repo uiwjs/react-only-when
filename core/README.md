@@ -24,7 +24,25 @@ import Only from '@uiw/react-only-when'
 </Only>
 ```
 
-## \<If>
+```jsx
+import { If } from '@uiw/react-only-when/if'
+
+<If condition={props.error}>
+  <h1>{props.error}</h1>
+</If>
+```
+
+```jsx
+import { Switch, Case, Default } from '@uiw/react-only-when/switch'
+
+<Switch>
+  <Case condition={age < 6}>preschool</Case>
+  <Case condition={age >= 6}>primary school</Case>
+  <Default>you graduated</Default>
+</Switch>
+```
+
+## \<If />
 
 React component that renders the children if the `condition` prop is `true`.
 
@@ -56,7 +74,7 @@ Or you could just use plain JavaScript:
 </div>
 ```
 
-## Example
+Only Example
 
 ```jsx mdx:preview&background=#fff&codePen=true
 import React, { useState } from 'react';
@@ -72,6 +90,38 @@ export default function App() {
       </Only>
     </div>
   )
+}
+```
+
+## \<Switch />
+
+```jsx
+import { Switch, Case, Default } from '@uiw/react-only-when/switch'
+
+<Switch>
+  <Case condition={age < 6}>preschool</Case>
+  <Case condition={age >= 6}>primary school</Case>
+  <Default>you graduated</Default>
+</Switch>
+```
+
+```jsx mdx:preview&background=#fff&codePen=true
+import React, { useState, Fragment } from 'react';
+import { Switch, Case, Default } from '@uiw/react-only-when/switch'
+
+export default function App() {
+  const [age, setAge] = useState(19)
+  return (
+    <Fragment>
+      <input type="range" onChange={(evn) => setAge(Number(evn.target.value))} /> {age}
+      <Switch>
+        <Case condition={age < 6}>Preschool</Case>
+        <Case condition={age >= 6 && age < 18}>Primary school</Case>
+        <Case condition={age >= 18}>Went to college</Case>
+        <Default>you graduated</Default>
+      </Switch>
+    </Fragment>
+  );
 }
 ```
 
