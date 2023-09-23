@@ -7,71 +7,75 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        registry-url: 'https://registry.npmjs.org'
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
 
-    - run: npm install
-    - run: npm run build
-    - run: npm run doc
-    - run: npm run coverage
-    - run: cp -rp ./coverage www/build
+      - run: npm install
+      - run: npm run build
+      - run: npm run doc
+      - run: npm run coverage
+      - run: cp -rp ./coverage www/build
 
-    - name: Create Tag
-      id: create_tag
-      uses: jaywcjlove/create-tag-action@main
-      with:
-        package-path: ./core/package.json
+      - name: Create Tag
+        id: create_tag
+        uses: jaywcjlove/create-tag-action@main
+        with:
+          package-path: ./core/package.json
 
-    - name: Generate Contributors Images
-      uses: jaywcjlove/github-action-contributors@main
-      with:
-        filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
-        output: www/build/CONTRIBUTORS.svg
-        avatarSize: 42
+      - name: Generate Contributors Images
+        uses: jaywcjlove/github-action-contributors@main
+        with:
+          filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
+          output: www/build/CONTRIBUTORS.svg
+          avatarSize: 42
 
-    - name: Create Coverage Badges
-      uses: jaywcjlove/coverage-badges-cli@main
-      with:
-        output: www/build/badges.svg
+      - name: Create Coverage Badges
+        uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          output: www/build/badges.svg
 
-    - name: Generate Changelog
-      id: changelog
-      uses: jaywcjlove/changelog-generator@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        head-ref: ${{steps.create_tag.outputs.version}}
-        filter-author: (renovate-bot|Renovate Bot)
-        filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
+      - name: Generate Changelog
+        id: changelog
+        uses: jaywcjlove/changelog-generator@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          head-ref: ${{steps.create_tag.outputs.version}}
+          filter-author: (renovate-bot|Renovate Bot)
+          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./www/build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./www/build
 
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      if: steps.create_tag.outputs.successful
-      with:
-        name: ${{ steps.create_tag.outputs.version }}
-        tag: ${{ steps.create_tag.outputs.version }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-only-when@${{steps.changelog.outputs.version}}/file/README.md) [![Coverage Status](https://coveralls.io/repos/github/uiwjs/react-only-when/badge.svg?branch=main)](https://coveralls.io/github/uiwjs/react-only-when?branch=main) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-only-when)](https://www.npmjs.com/package/@uiw/react-only-when)
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        if: steps.create_tag.outputs.successful
+        with:
+          name: ${{ steps.create_tag.outputs.version }}
+          tag: ${{ steps.create_tag.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-only-when@${{steps.changelog.outputs.version}}/file/README.md) [![Coverage Status](https://coveralls.io/repos/github/uiwjs/react-only-when/badge.svg?branch=main)](https://coveralls.io/github/uiwjs/react-only-when?branch=main) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-only-when)](https://www.npmjs.com/package/@uiw/react-only-when)
 
-          ```bash
-          npm i @uiw/react-only-when@${{steps.changelog.outputs.version}}
-          ```
-          ${{ steps.changelog.outputs.compareurl }}
-          ${{ steps.changelog.outputs.changelog }}
+            ```bash
+            npm i @uiw/react-only-when@${{steps.changelog.outputs.version}}
+            ```
+            
+            ${{ steps.changelog.outputs.compareurl }}
+            ${{ steps.changelog.outputs.changelog }}
 
-    - run: npm publish --access public
-      name: 📦 @uiw/react-only-when publish to NPM
-      continue-on-error: true
-      working-directory: core
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public --provenance
+        name: 📦 @uiw/react-only-when publish to NPM
+        continue-on-error: true
+        working-directory: core
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
