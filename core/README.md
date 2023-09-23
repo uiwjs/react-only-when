@@ -100,7 +100,7 @@ import { Switch, Case, Default } from '@uiw/react-only-when/switch'
 
 <Switch>
   <Case condition={age < 6}>preschool</Case>
-  <Case condition={age >= 6}>primary school</Case>
+  <Case as="div" condition={age >= 6}>primary school</Case>
   <Default>you graduated</Default>
 </Switch>
 ```
@@ -113,12 +113,35 @@ export default function App() {
   const [age, setAge] = useState(19)
   return (
     <Fragment>
-      <input type="range" onChange={(evn) => setAge(Number(evn.target.value))} /> {age}
+      <input type="range" onChange={(evn) => setAge(Number(evn.target.value))} /> {age}<br />
       <Switch>
         <Case condition={age < 6}>Preschool</Case>
         <Case condition={age >= 6 && age < 18}>Primary school</Case>
-        <Case condition={age >= 18}>Went to college</Case>
+        <Case condition={age >= 18 && age < 60}>Went to college</Case>
         <Default>you graduated</Default>
+      </Switch>
+    </Fragment>
+  );
+}
+```
+
+Defaults to specifying a wrapped HTML Element.
+
+```jsx mdx:preview&background=#fff&codePen=true
+import React, { useState, Fragment } from 'react';
+import { Switch, Case, Default } from '@uiw/react-only-when/switch'
+
+export default function App() {
+  const [age, setAge] = useState(19)
+  return (
+    <Fragment>
+      <input type="range" onChange={(evn) => setAge(Number(evn.target.value))} /> {age}
+      <br />
+      <Switch>
+        <Case as="span" condition={age < 6}>Preschool</Case>
+        <Case as="em" condition={age >= 6 && age < 18}>Primary school</Case>
+        <Case as="div" condition={age >= 18 && age < 60}>Went to college</Case>
+        <Default as="p">you graduated</Default>
       </Switch>
     </Fragment>
   );
