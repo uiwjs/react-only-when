@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from 'react';
+import React from 'react';
+import { useContext, useReducer } from 'react';
 
 export type InitialState = {
   [key: string]: React.ReactNode;
@@ -8,7 +9,7 @@ export type InitialState = {
 };
 
 const initialState: InitialState = {};
-export const Context = createContext<InitialState>(initialState);
+export const Context = React.createContext<InitialState>(initialState);
 
 const reducer = (state: InitialState, action: InitialState) => {
   action.active = action.active ?? {};
@@ -28,7 +29,7 @@ export function useSwitch() {
 }
 
 type Dispatch = React.Dispatch<InitialState>;
-export const DispatchSwitch = createContext<Dispatch>(() => {});
+export const DispatchSwitch = React.createContext<Dispatch>(() => {});
 DispatchSwitch.displayName = 'OW.DispatchSwitch';
 
 export function useSwitchDispatch() {
