@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { FC, PropsWithChildren } from 'react';
+import type { ReactElement } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
 export interface IfProps {
   readonly condition?: boolean;
