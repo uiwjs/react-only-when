@@ -16,6 +16,11 @@ export default (conf: WebpackConfiguration, env: 'production' | 'development', o
     }),
   );
   conf.module!.exprContextCritical = false;
+  conf.ignoreWarnings = [
+    {
+      module: /node_modules[\\/]parse5[\\/]/,
+    },
+  ];
   if (env === 'production') {
     conf.output = { ...conf.output, publicPath: './' };
     conf.optimization = {

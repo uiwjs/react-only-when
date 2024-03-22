@@ -29,7 +29,7 @@ it('<Case />', () => {
   expect(container.innerHTML).toEqual('preschool');
 });
 
-it('<Case />', () => {
+it('<Case /> 1', () => {
   const { container } = render(
     <Switch>
       <Case condition={true}>preschool</Case>
@@ -40,7 +40,7 @@ it('<Case />', () => {
   expect(container.innerHTML).toEqual('preschool');
 });
 
-it('<Case />', () => {
+it('<Case /> 2', () => {
   const { container } = render(
     <Switch>
       <Case condition={false}>preschool</Case>
