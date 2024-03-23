@@ -20,7 +20,7 @@ export const Switch: FC<PropsWithChildren<{}>> = ({ children }) => {
     }
     return false;
   });
-  return <>{matchChild ?? defaultCase ?? null}</>;
+  return matchChild ?? defaultCase ?? null;
 };
 
 type TagType = React.ElementType | keyof JSX.IntrinsicElements;
@@ -37,4 +37,6 @@ export const Case = <T extends TagType>(props: CaseProps<T>) => {
   return Elm ? <Elm {...reset}>{children}</Elm> : children;
 };
 
-export const Default = <T extends TagType>(props: CaseProps<T>) => <Case {...props} />;
+export const Default = <T extends TagType>(props: Omit<CaseProps<T>, 'condition'>) => (
+  <Case {...({ ...props } as CaseProps<T>)} />
+);

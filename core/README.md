@@ -182,17 +182,16 @@ export declare const If: FC<PropsWithChildren<IfProps>>;
 ## `<Switch />` `<Case />` `<Default />` Props
 
 ```tsx
-import { type FC, type PropsWithChildren } from 'react';
-export declare const Switch: FC<PropsWithChildren<{}>>;
-
+import type { FC, PropsWithChildren } from 'react';
+export const Switch: FC<PropsWithChildren<{}>>;
 type TagType = React.ElementType | keyof JSX.IntrinsicElements;
 interface CaseElementProps<T extends TagType> {
   as?: T;
   readonly condition?: boolean;
 }
 export type CaseProps<T extends TagType> = CaseElementProps<T> & React.ComponentPropsWithoutRef<T>;
-export declare const Case: <T extends TagType>(props: CaseProps<T>) => null;
-export declare const Default: <T extends TagType>(props: CaseProps<T>) => null;
+export const Case: <T extends TagType>(props: CaseProps<T>) => any;
+export const Default: <T extends TagType>(props: Omit<CaseProps<T>, 'condition'>) => import("react/jsx-runtime").JSX.Element;
 ```
 
 ## Development
