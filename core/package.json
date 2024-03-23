@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-only-when",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A declarative component for conditional rendering.",
   "main": "cjs/index.js",
   "module": "esm/index.js",
